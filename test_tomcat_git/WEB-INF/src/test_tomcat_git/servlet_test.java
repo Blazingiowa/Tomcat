@@ -18,9 +18,9 @@ public class servlet_test extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
 	{
-		JSONcast cast = new JSONcast();
+		Text tx = new Text();
 
-		cast.decord(request);
+		//cast.decord(request);
 
 
 		PrintWriter out = response.getWriter();

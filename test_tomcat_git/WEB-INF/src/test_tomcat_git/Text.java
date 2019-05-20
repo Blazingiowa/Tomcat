@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.JSONObject;
 
 
-public class JSONcast
+public class Text
 {
 	DataBaseConect DBC = new DataBaseConect();
 	JSONObject bord,athand,defhand = new JSONObject();
@@ -26,8 +26,8 @@ public class JSONcast
 
 	}
 
-	String decord(HttpServletRequest request)
+	void decord(JSONObject obj)
 	{
-		return null;
+		
 	}
 }
