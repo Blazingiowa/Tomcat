@@ -36,6 +36,7 @@ public class DataBaseConect
 			{
 				System.out.println(e);
 				//例外処理
+				
 			}
 		}
 	}

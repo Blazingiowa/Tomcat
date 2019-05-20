@@ -23,11 +23,10 @@ public class Text
 	void encord()
 	{
 
-
 	}
 
 	void decord(JSONObject obj)
 	{
-		
+
 	}
 }
