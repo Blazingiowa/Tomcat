@@ -12,17 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/servlet_test")
 public class servlet_test extends HttpServlet
 {
+	String json;
+	String Session;
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
 	{
+		JSONcast cast = new JSONcast();
 
-		response.setContentType("text/html; charset=UTF-8");
-	    PrintWriter out = response.getWriter();
-	    StringBuffer sb = new StringBuffer();
-	    //飛び先クラスのインスタンス化
+		cast.decord(request);
 
-	    //sb.append = クラス移動(request);
-	    //out.println(new String(sb);
+
+		PrintWriter out = response.getWriter();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+
+
+		out.print(json);
+		out.flush();
 	    out.close();
 
 	}

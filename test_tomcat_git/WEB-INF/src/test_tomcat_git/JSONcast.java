@@ -1,6 +1,9 @@
 package test_tomcat_git;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.JSONObject;
+
 
 public class JSONcast
 {
@@ -20,10 +23,11 @@ public class JSONcast
 	void encord()
 	{
 
+
 	}
 
-	void decord()
+	String decord(HttpServletRequest request)
 	{
-
+		return null;
 	}
 }
