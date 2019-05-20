@@ -15,8 +15,10 @@ public class JSONcast
 
 	}
 
-	void sessiondecord()
+	String sessiondecord(HttpServletRequest request)
 	{
+		String session = null;
+		return session;
 
 	}
 
@@ -26,8 +28,8 @@ public class JSONcast
 
 	}
 
-	String decord(HttpServletRequest request)
+	void decord()
 	{
-		return null;
+		
 	}
 }
