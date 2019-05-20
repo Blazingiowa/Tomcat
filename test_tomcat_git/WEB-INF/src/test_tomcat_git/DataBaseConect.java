@@ -16,7 +16,7 @@ public class DataBaseConect
 		try
 		{
 			conn = DriverManager.getConnection(url,user,password);
-
+			
 			//SQL
 		}
 		catch(SQLException e)
