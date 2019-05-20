@@ -9,9 +9,6 @@ public class Gamestart
 {
 	Gamemain Gm = new Gamemain();
 	Text tx = new Text();
-<<<<<<< HEAD
-	
-=======
 
 	void createdirectry()
 	{
@@ -27,5 +24,4 @@ public class Gamestart
 
 
 	}
->>>>>>> branch 'neo_yt' of https://github.com/Blazingiowa/Tomcat.git
 }
