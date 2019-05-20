@@ -6,11 +6,11 @@ public class JSONcast
 
 	void encord()
 	{
-
+		
 	}
 
 	void decord()
 	{
-
+		
 	}
 }
