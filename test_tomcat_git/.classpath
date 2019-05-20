@@ -12,6 +12,5 @@
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
 	<classpathentry kind="src" path="WEB-INF/src"/>
 	<classpathentry kind="src" output="work" path="work"/>
-	<classpathentry kind="lib" path="C:/Users/kamin/Desktop/pleiades/json-20180813.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

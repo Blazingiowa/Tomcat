@@ -2,13 +2,10 @@ package test_tomcat_git;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.json.JSONObject;
-
 
 public class Text
 {
 	DataBaseConect DBC = new DataBaseConect();
-	JSONObject bord,athand,defhand = new JSONObject();
 
 	void sessionencord()//aaaaaaaaaaaaaa
 	{
@@ -25,7 +22,7 @@ public class Text
 
 	}
 
-	void decord(JSONObject obj)
+	void decord()
 	{
 
 	}
