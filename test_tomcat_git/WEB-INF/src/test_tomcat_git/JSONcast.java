@@ -17,13 +17,9 @@ public class JSONcast
 
 	String sessiondecord(HttpServletRequest request)
 	{
-<<<<<<< HEAD
 		String session = null;
 		return session;
 
-=======
-		return null;
->>>>>>> branch 'tomcat' of https://github.com/Blazingiowa/Tomcat.git
 	}
 
 	void encord()
@@ -34,6 +30,6 @@ public class JSONcast
 
 	void decord()
 	{
-		
+
 	}
 }
