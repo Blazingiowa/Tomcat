@@ -15,9 +15,9 @@ public class JSONcast
 
 	}
 
-	void sessiondecord()
+	String sessiondecord(HttpServletRequest request)
 	{
-
+		return null;
 	}
 
 	void encord()
