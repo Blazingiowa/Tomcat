@@ -1,5 +1,7 @@
 package test_tomcat_git;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class JSONcast
 {
 	DataBaseConect DBC = new DataBaseConect();
@@ -7,10 +9,11 @@ public class JSONcast
 	void encord()
 	{
 
+
 	}
 
-	void decord()
+	String decord(HttpServletRequest request)
 	{
-
+		return null;
 	}
 }

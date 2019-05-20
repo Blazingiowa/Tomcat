@@ -12,13 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/servlet_test")
 public class servlet_test extends HttpServlet
 {
+	String json;
+	String Session;
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
 	{
+		JSONcast cast = new JSONcast();
 
-		String json = null;
-		//
-		//json =
+		cast.decord(request);
+
 
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
