@@ -51,6 +51,6 @@ public class Gamemain
 	}
 	void attack_judg()
 	{
-		
+
 	}
 }
