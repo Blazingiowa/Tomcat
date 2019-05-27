@@ -32,18 +32,23 @@ public class servlet_test extends HttpServlet
 
 		String name_val = request.getParameter("name"); //リクエスト内に[name]パラメーターで名前を入れてもらう
 
+		int[] use_hand = conversion((String[])request.getParameterValues("Use_hand"));
+
 		HttpSession session = request.getSession();
 
 
 		String[] userinfo = new String[3];//順番 0 ユーザーID 1 ルームID 2 攻守
 
 		Gson gson = new Gson();
-		if (session.getAttribute("user_name") == null){
+		if (session.getAttribute("user_name") == null)
+		{
 
 			userinfo = game_start.createdirectry(name_val);
 
 			session.setAttribute("user_name", name_val);
 			session.setAttribute("user_id", userinfo[0]);
+			session.setAttribute("room_id", userinfo[1]);
+			session.setAttribute("at_df", userinfo[2]);
 
 			ub.setuserID(userinfo[0]);
 			ub.setRoomID(userinfo[1]);
@@ -57,8 +62,22 @@ public class servlet_test extends HttpServlet
 				    ));
 
 		}
-		else{
+		else
+		{
 		    	//game_main.
 		}
 	}
+	int[] conversion(String[] str)
+	{
+		int[] h_int = new int[str.length];
+		for (int i = 0; i < h_int.length; i++)
+		{
+			h_int[i] = Integer.parseInt(str[i]);
+		}
+
+		return h_int;
+
+	}
+
+
 }
