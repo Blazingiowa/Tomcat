@@ -2,17 +2,20 @@ package test_tomcat_git;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DataBaseConect
 {
-	Connection conn = null;
-	String url = ""; //データベースのURLまたはIPアドレスローカルの場合はパス
-	String user = "";//データベースへアクセスするID
-	String password = "testpass";//データベースのパスワード
+	protected Connection conn = null;
+	protected String url = "jdbc:mysql://localhost/u22?characterEncoding=UTF-8&serverTimezone=JST"; //データベースのURLまたはIPアドレス、ローカルの場合はパス
+	protected String user = "root";//データベースへアクセスするID
+	protected String password = "yasutaka13";//データベースのパスワード
 
-	int[] reference = new int[5];//受け渡す情報が入る
-	int[] room = new int[2];//ルームIDとユーザIDが入る
+	protected int[] reference = new int[6];//受け渡す情報が入る
+	protected int[] room = new int[3];//ルームIDとユーザIDが入る
+	protected int timeoutseconds = 30;//タイムアウト時間
 
 	int[] reference(int id,int type)//idはカードidなど、typeは攻防か、ルーム検索か
 	{
@@ -23,6 +26,38 @@ public class DataBaseConect
 
 		if(type == -1)//ルームの空き情報を検索
 		{
+			try
+			{
+				conn = DriverManager.getConnection(url,user,password);
+				DriverManager.setLoginTimeout(timeoutseconds);
+				//SQL
+				Statement stmt = conn.createStatement();
+				//結果の挿入
+				ResultSet rs = stmt.executeQuery("");
+				room[0] = rs.getInt("ユーザid");
+				room[1] = rs.getInt("ルームid");
+				room[2] = rs.getInt("攻守");
+			}
+			catch(SQLException e)
+			{
+				System.out.println(e);
+			}
+			finally
+			{
+				try
+				{
+					if (conn != null)
+					{
+						conn.close();
+					}
+				}
+				catch(SQLException e)
+				{
+					System.out.println(e);
+					//例外処理
+
+				}
+			}
 
 		}
 
@@ -31,8 +66,18 @@ public class DataBaseConect
 			try
 			{
 				conn = DriverManager.getConnection(url,user,password);
-
+				DriverManager.setLoginTimeout(timeoutseconds);
 				//SQL
+				Statement stmt = conn.createStatement();
+				//結果の挿入
+				ResultSet rs = stmt.executeQuery("");
+				reference[0] = rs.getInt("id");
+				reference[1] = rs.getInt("ダメージ");
+				reference[2] = rs.getInt("攻防");
+				reference[3] = rs.getInt("防カードid1(仮)");
+				reference[4] = rs.getInt("防カードid2(仮)");
+				reference[5] = rs.getInt("コスト");
+
 			}
 			catch(SQLException e)
 			{
@@ -93,7 +138,5 @@ public class DataBaseConect
 		}
 		//データベースからのintデータをString配列にキャスト
 		return userinfo;
-
-
 	}
 }
