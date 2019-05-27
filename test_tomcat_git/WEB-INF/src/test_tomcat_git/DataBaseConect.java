@@ -4,19 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DataBaseConect 
+public class DataBaseConect
 {
 	Connection conn = null;
-	String url = ""; //データベースのURLまたはIPアドレスローカルの場合はパス
-	String user = "";//データベースへアクセスするID
-	String password = "testpass";//データベースのパスワード
+	String url = "jdbc:mysql://localhost/u22?characterEncoding=UTF-8&serverTimezone=JST"; //データベースのURLまたはIPアドレスローカルの場合はパス
+	String user = "root";//データベースへアクセスするID
+	String password = "yasutaka13";//データベースのパスワード
 
 	void databaseconect()
 	{
 		try
 		{
 			conn = DriverManager.getConnection(url,user,password);
-			
+
 			//SQL
 		}
 		catch(SQLException e)
@@ -36,7 +36,7 @@ public class DataBaseConect
 			{
 				System.out.println(e);
 				//例外処理
-				
+
 			}
 		}
 	}
