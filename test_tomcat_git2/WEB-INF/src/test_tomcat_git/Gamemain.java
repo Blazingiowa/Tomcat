@@ -66,8 +66,4 @@ public class Gamemain
 	{
 
 	}
-	void turn_change()
-	{
-
-	}
 }

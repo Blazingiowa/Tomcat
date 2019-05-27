@@ -9,9 +9,9 @@ import java.sql.Statement;
 public class DataBaseConect
 {
 	protected Connection conn = null;
-	protected String url = "jdbc:mysql://localhost/u22?characterEncoding=UTF-8&serverTimezone=JST"; //データベースのURLまたはIPアドレス、ローカルの場合はパス
-	protected String user = "root";//データベースへアクセスするID
-	protected String password = "yasutaka13";//データベースのパスワード
+	protected String url = ""; //データベースのURLまたはIPアドレス、ローカルの場合はパス
+	protected String user = "";//データベースへアクセスするID
+	protected String password = "testpass";//データベースのパスワード
 
 	protected int[] reference = new int[6];//受け渡す情報が入る
 	protected int[] room = new int[3];//ルームIDとユーザIDが入る
@@ -138,5 +138,7 @@ public class DataBaseConect
 		}
 		//データベースからのintデータをString配列にキャスト
 		return userinfo;
+
+
 	}
 }
