@@ -22,7 +22,9 @@ public class GameProject
 	int winpt;//勝利条件（防御側が３回防いだら＝これが３溜まったら防御側の勝ち）
 
 	int[] atcardinfo = new int[5];//DBから攻撃カードのデータを受け取るときの退避用配列
-	int[]defcardinfo =new int[2];//DBから防御カードのデータを受け取るときの退避用配列
+	int[] defcardinfo = new int[2];//DBから防御カードのデータを受け取るときの退避用配列
+
+	DataBaseConect DBC = new DataBaseConect();//DBクラスのインスタンス
 
 	/*------メモ--------------------------------------------------------/
 	/<リスト名>.add(要素番号);//リストに追加							/
@@ -59,11 +61,11 @@ public class GameProject
 		Collections.shuffle(atcard);//攻撃カードの山札をシャッフル
 		for (int i = 0; i < 5; i++)
 		{
-			athand[i][0] = atcard.get(i);//配列の１番目にカードIDをセット
-
+			atcardinfo = DBC.reference(atcard.get(i), 0);//DBのカード情報を取り出して退避用配列にぶち込む
 			for (int j = 0; j < 5; j++)
 			{
-
+				//攻撃側の手札にカード情報をセット
+				athand[i][j] = atcardinfo[j];
 			}
 		}
 
@@ -80,10 +82,11 @@ public class GameProject
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			defhand[i][0] = defcard.get(i);//配列の１番目にカードIDをセット
+			defcardinfo = DBC.reference(defcard.get(i), 0);//DBのカード情報を取り出して退避用配列にぶち込む
 			for (int j = 0; j < 2; j++)
 			{
-
+				//防御側の手札にカード情報をセット
+				defhand[i][j] = defcardinfo[j];
 			}
 		}
 
