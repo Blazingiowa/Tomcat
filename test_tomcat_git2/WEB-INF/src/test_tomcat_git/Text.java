@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Text
 {
-	DataBaseConect DBC = new DataBaseConect();
+	DataBaseConnect DBC = new DataBaseConnect();
 
 	void sessionencord()//aaaaaaaaaaaaaa
 	{
