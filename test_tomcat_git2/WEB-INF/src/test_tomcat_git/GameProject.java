@@ -24,7 +24,7 @@ public class GameProject
 	int[] atcardinfo = new int[5];//DBから攻撃カードのデータを受け取るときの退避用配列
 	int[] defcardinfo = new int[2];//DBから防御カードのデータを受け取るときの退避用配列
 
-	DataBaseConect DBC = new DataBaseConect();//DBクラスのインスタンス
+	//DataBaseConnect DBC = new DataBaseConnect();//DBクラスのインスタンス
 
 	/*------メモ--------------------------------------------------------/
 	/<リスト名>.add(要素番号);//リストに追加							/
@@ -61,7 +61,7 @@ public class GameProject
 		Collections.shuffle(atcard);//攻撃カードの山札をシャッフル
 		for (int i = 0; i < 5; i++)
 		{
-			atcardinfo = DBC.reference(atcard.get(i), 0);//DBのカード情報を取り出して退避用配列にぶち込む
+			//atcardinfo = DBC.reference(atcard.get(i), 0);//DBのカード情報を取り出して退避用配列にぶち込む
 			for (int j = 0; j < 5; j++)
 			{
 				//攻撃側の手札にカード情報をセット
@@ -82,7 +82,7 @@ public class GameProject
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			defcardinfo = DBC.reference(defcard.get(i), 0);//DBのカード情報を取り出して退避用配列にぶち込む
+			//defcardinfo = DBC.reference(defcard.get(i), 0);//DBのカード情報を取り出して退避用配列にぶち込む
 			for (int j = 0; j < 2; j++)
 			{
 				//防御側の手札にカード情報をセット

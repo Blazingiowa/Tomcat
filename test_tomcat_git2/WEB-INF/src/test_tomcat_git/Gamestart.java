@@ -4,7 +4,7 @@ public class Gamestart
 {
 	Gamemain Gm = new Gamemain();
 	Text tx = new Text();
-	DataBaseConect DBC = new DataBaseConect();
+	DataBaseConnect DBC = new DataBaseConnect();
 	String[] userinfo = new String[3];//ユーザID,ルームID,攻守の順番で格納
 
 	String[] createdirectry(String user_name) //
