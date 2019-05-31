@@ -76,8 +76,6 @@ public class Text
 
 	void filereader(String[] lineinfo,int line)
 	{
-		file = new File("");//roomidとplayernumberを使用してファイルを特定
-
 		//以下int配列へキャスト
 		String[] temporary = lineinfo[line].split(",");
 
