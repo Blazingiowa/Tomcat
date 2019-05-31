@@ -1,25 +1,31 @@
 package test_tomcat_git;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 
 
 public class Text
 {
 	DataBaseConnect DBC = new DataBaseConnect();
-
-	void sessionencord()//aaaaaaaaaaaaaa
-	{
-
-	}
-
-	String sessiondecord(HttpServletRequest request)
-	{
-		return null;
-	}
+	
+	BufferedReader br;
+	FileWriter filewriter;
+	
+	
+	File field;
 
 	void filewrite()
 	{
-
+		try 
+		{
+			
+		}
+		
+		catch(Exception e)
+		{
+			
+		}
 	}
 
 	void fileread()
