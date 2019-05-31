@@ -31,7 +31,8 @@ public class GameProject
 	//メインメソッド
 	void main(String[] playerinfo, int[] usecard)
 	{
-		//tx.fileread(playerinfo[1],playerinfo[2]);//テキストファイルを検索
+		//tx.fileread(playerinfo[1],playerinfo[2],1);//テキストファイルを検索
+
 
 	}
 
