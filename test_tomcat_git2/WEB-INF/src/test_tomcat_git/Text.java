@@ -28,8 +28,17 @@ public class Text
 		}
 	}
 
-	void filereader()
+	void filereader(String room,String number,int line)
 	{
+		int roomid =
+		try
+		{
 
+		}
+
+		catch(Exception e)
+		{
+
+		}
 	}
 }
