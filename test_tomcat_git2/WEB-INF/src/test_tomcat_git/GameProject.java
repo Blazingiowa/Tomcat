@@ -31,12 +31,12 @@ public class GameProject
 	//メインメソッド
 	void main(String[] playerinfo, int[] usecard)
 	{
-		tx.filereader(playerinfo[1],playerinfo[2],1);//テキストファイルを検索
+		//tx.filereader(playerinfo[1],playerinfo[2],1);//テキストファイルを検索[ルームID][ユーザ番号][行数]
 
 
 	}
 
-	/*攻撃カードの手札の配列内容(5×5)------------------------------/
+	/*攻撃カードの手札の配列内容(5×5)--------------------------/
 	/															/
 	/	[カードID][ダメージ値][コスト][防カード１][防カード２]	/
 	/															/
