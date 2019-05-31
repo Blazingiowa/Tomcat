@@ -56,13 +56,12 @@ public class Text
 		}
 		else
 		{
-			String a ="a";
 			filereader(linenumber,line);
 			return playerinfo;
 		}
 	}
 
-	void filewriter(String room,String number,int line)
+	void filewriter(String[] lineinfo,int line)
 	{
 		try
 		{
@@ -75,10 +74,8 @@ public class Text
 		}
 	}
 
-	int[] filereader(String[] lineinfo,int line)
+	void filereader(String[] lineinfo,int line)
 	{
-		file = new File("");//roomidとplayernumberを使用してファイルを特定
-
 		//以下int配列へキャスト
 		String[] temporary = lineinfo[line].split(",");
 
@@ -86,8 +83,6 @@ public class Text
 		{
 			playerinfo[i] = Integer.parseInt(temporary[i]);
 		}
-
-		return playerinfo;
 	}
 
 	void brclose()
