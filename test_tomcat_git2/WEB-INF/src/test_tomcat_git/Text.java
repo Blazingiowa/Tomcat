@@ -13,11 +13,54 @@ public class Text
 
 	BufferedReader br;
 	FileWriter filewriter;
+	String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
+	int[] playerinfo = new int[10];//配列数は仮設定
 
+	int roomid,playernumber;//ルーム番号をintにキャスト
 
 	File file;
 
-	void filewrite()
+	void text(String room,String number,int line,int WriteorRead)//試験的に作るため呼び出し禁止
+	{
+		roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
+		playernumber = Integer.parseInt(number);//プレイヤー番号をintにキャスト
+
+		file = new File("");//roomidとplayernumberを使用してファイルを特定
+
+		//以下テキストファイル読み込み
+		try
+		{
+			br = new BufferedReader(new FileReader(file));
+			String str = br.readLine();
+
+			//while(str != null)
+			for(int i = 0;str != null;i++)
+			{
+				linenumber[i] = str;
+			}
+		}
+
+		catch(Exception e)
+		{
+			//何かしらレスポンスを記述
+		}
+
+		finally
+		{
+			brclose();
+		}
+
+		if(WriteorRead == 0)
+		{
+			//filewrite();
+		}
+		else
+		{
+			//fileread(file,);
+		}
+	}
+
+	void filewriter(String room,String number,int line)
 	{
 		try
 		{
