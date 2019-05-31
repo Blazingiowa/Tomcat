@@ -13,18 +13,18 @@ public class Text
 
 	BufferedReader br;
 	FileWriter filewriter;
-	String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
+
 	int[] playerinfo = new int[10];//配列数は仮設定
 
 	int roomid,playernumber;//ルーム番号をintにキャスト
 
 	File file;
 
-	void text(String room,String number,int line,int WriteorRead)//試験的に作るため呼び出し禁止
+	int[] text(String room,String number,int line,int WriteorRead)//試験的に作るため呼び出し禁止
 	{
 		roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
 		playernumber = Integer.parseInt(number);//プレイヤー番号をintにキャスト
-
+		String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
 		file = new File("");//roomidとplayernumberを使用してファイルを特定
 
 		//以下テキストファイル読み込み
@@ -33,7 +33,6 @@ public class Text
 			br = new BufferedReader(new FileReader(file));
 			String str = br.readLine();
 
-			//while(str != null)
 			for(int i = 0;str != null;i++)
 			{
 				linenumber[i] = str;
@@ -53,10 +52,13 @@ public class Text
 		if(WriteorRead == 0)
 		{
 			//filewrite();
+			return null;
 		}
 		else
 		{
-			//fileread(file,);
+			String a ="a";
+			filereader(linenumber,line);
+			return playerinfo;
 		}
 	}
 
@@ -73,41 +75,12 @@ public class Text
 		}
 	}
 
-	int[] filereader(String room,String number,int line)
+	int[] filereader(String[] lineinfo,int line)
 	{
-		String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
-		int[] playerinfo = new int[10];//配列数は仮設定
-
-		int roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
-		int playernumber = Integer.parseInt(number);//プレイヤー番号をintにキャスト
-
 		file = new File("");//roomidとplayernumberを使用してファイルを特定
 
-		//以下テキストファイル読み込み
-		try
-		{
-			br = new BufferedReader(new FileReader(file));
-			String str = br.readLine();
-
-			//while(str != null)
-			for(int i = 0;str != null;i++)
-			{
-				linenumber[i] = str;
-			}
-		}
-
-		catch(Exception e)
-		{
-			//何かしらレスポンスを記述
-		}
-
-		finally
-		{
-			brclose();
-		}
-
 		//以下int配列へキャスト
-		String[] temporary = linenumber[line].split(",");
+		String[] temporary = lineinfo[line].split(",");
 
 		for(int i = 0;i<temporary.length;i++)
 		{
