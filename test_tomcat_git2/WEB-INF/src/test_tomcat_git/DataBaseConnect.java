@@ -14,7 +14,7 @@ public class DataBaseConnect
 	protected String password = "yasutaka13";//データベースのパスワード
 
 	protected int[] reference = new int[6];//受け渡す情報が入る
-	protected int[] room = new int[3];//ルームIDとユーザIDが入る
+	protected int[] room = new int[2];//ルームIDとユーザIDが入る
 	protected int timeoutseconds = 30;//タイムアウト時間
 
 	int[] reference(int id,int type)//idはカードidなど、typeは攻防か、ルーム検索か
@@ -36,7 +36,7 @@ public class DataBaseConnect
 				ResultSet rs = stmt.executeQuery("");
 				room[0] = rs.getInt("ユーザid");
 				room[1] = rs.getInt("ルームid");
-				room[2] = rs.getInt("攻守");
+				//room[2] = rs.getInt("攻守");
 			}
 			catch(SQLException e)
 			{
