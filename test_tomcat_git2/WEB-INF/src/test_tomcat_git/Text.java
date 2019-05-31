@@ -31,7 +31,7 @@ public class Text
 	void filereader(String room,String number,int line)
 	{
 		int roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
-		int playernumber = Integer.parseInt(number);
+		int playernumber = Integer.parseInt(number);//プレイヤー番号をintにキャスト
 
 		try
 		{
