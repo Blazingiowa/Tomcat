@@ -2,7 +2,9 @@ package test_tomcat_git;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 
 public class Text
@@ -12,10 +14,55 @@ public class Text
 	BufferedReader br;
 	FileWriter filewriter;
 
+	int[] playerinfo = new int[10];//配列数は仮設定
 
-	File field;
+	int roomid,playernumber;//ルーム番号をintにキャスト
 
-	void filewrite()
+	File file;
+
+	int[] text(String room,String number,int line,int WriteorRead)//試験的に作るため呼び出し禁止
+	{
+		roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
+		playernumber = Integer.parseInt(number);//プレイヤー番号をintにキャスト
+		String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
+		file = new File("");//roomidとplayernumberを使用してファイルを特定
+
+		//以下テキストファイル読み込み
+		try
+		{
+			br = new BufferedReader(new FileReader(file));
+			String str = br.readLine();
+
+			for(int i = 0;str != null;i++)
+			{
+				linenumber[i] = str;
+			}
+		}
+
+		catch(Exception e)
+		{
+			//何かしらレスポンスを記述
+		}
+
+		finally
+		{
+			brclose();
+		}
+
+		if(WriteorRead == 0)
+		{
+			//filewrite();
+			return null;
+		}
+		else
+		{
+			String a ="a";
+			filereader(linenumber,line);
+			return playerinfo;
+		}
+	}
+
+	void filewriter(String room,String number,int line)
 	{
 		try
 		{
@@ -28,20 +75,35 @@ public class Text
 		}
 	}
 
-	void filereader(String room,String number,int line)
+	int[] filereader(String[] lineinfo,int line)
 	{
+		file = new File("");//roomidとplayernumberを使用してファイルを特定
 
-		int roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
-		int playernumber = Integer.parseInt(number);
+		//以下int配列へキャスト
+		String[] temporary = lineinfo[line].split(",");
 
-		try
+		for(int i = 0;i<temporary.length;i++)
 		{
-
+			playerinfo[i] = Integer.parseInt(temporary[i]);
 		}
 
-		catch(Exception e)
-		{
+		return playerinfo;
+	}
 
+	void brclose()
+	{
+		if(br!=null)
+		{
+			try
+			{
+				br.close();
+			}
+
+			catch (IOException e)
+			{
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		}
 	}
 }
