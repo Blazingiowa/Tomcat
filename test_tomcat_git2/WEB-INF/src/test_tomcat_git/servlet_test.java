@@ -110,7 +110,7 @@ public class servlet_test extends HttpServlet
 		use_hand = conversion((String[])request.getParameterValues("Use_hand"));
 
 
-		game_project.main(user_info, use_hand);
+		game_project.main(user_session, use_hand);
 	}
 
 
