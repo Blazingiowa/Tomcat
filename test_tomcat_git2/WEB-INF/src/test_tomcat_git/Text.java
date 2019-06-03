@@ -20,7 +20,7 @@ public class Text
 
 	File file;
 
-	int[] text(int room,int number,int line,int WriteorRead)//試験的に作るため呼び出し禁止 room 部屋番号　number プレイヤー番号
+	int[] text(int room,int number,int line,int WriteorRead,int[] rewrite)//試験的に作るため呼び出し禁止 room 部屋番号　number プレイヤー番号 書き換える配列
 	{
 		String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
 		file = new File("");//roomidとplayernumberを使用してファイルを特定
