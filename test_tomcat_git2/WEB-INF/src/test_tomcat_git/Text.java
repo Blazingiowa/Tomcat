@@ -49,7 +49,7 @@ public class Text
 
 		if(WriteorRead == 0)
 		{
-			//filewrite();
+			filewriter(linenumber,line,rewrite);
 			return null;
 		}
 		else
@@ -59,7 +59,7 @@ public class Text
 		}
 	}
 
-	void filewriter(String[] lineinfo,int line)
+	void filewriter(String[] lineinfo,int line,int[] write)
 	{
 		try
 		{
