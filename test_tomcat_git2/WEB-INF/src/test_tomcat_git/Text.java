@@ -16,14 +16,12 @@ public class Text
 
 	int[] playerinfo = new int[10];//配列数は仮設定
 
-	int roomid,playernumber;//ルーム番号をintにキャスト
+	//int roomid,playernumber;//ルーム番号をintにキャスト
 
 	File file;
 
-	int[] text(String room,String number,int line,int WriteorRead)//試験的に作るため呼び出し禁止
+	int[] text(int room,int number,int line,int WriteorRead)//試験的に作るため呼び出し禁止 room 部屋番号　number プレイヤー番号
 	{
-		roomid = Integer.parseInt(room);//ルーム番号をintにキャスト
-		playernumber = Integer.parseInt(number);//プレイヤー番号をintにキャスト
 		String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
 		file = new File("");//roomidとplayernumberを使用してファイルを特定
 

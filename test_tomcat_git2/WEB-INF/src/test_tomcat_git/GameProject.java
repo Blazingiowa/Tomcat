@@ -18,11 +18,12 @@ public class GameProject
 	int[] atcardinfo = new int[5];//DBから攻撃カードのデータを受け取るときの退避用配列
 	int[] defcardinfo = new int[2];//DBから防御カードのデータを受け取るときの退避用配列
 
-	int[][]text = new int[5][3];//テキストファイルの内容を入れるための配列
+	int[] textW;//テキストファイルの内容を一時的に避難させるための１次元配列
+	int w;//みんな大好き一時退避変数だよ！＜＜０にｗを代入＞＞
+	int[][] textmain = new int[5][3];//避難させた内容を格納するための配列
 
 	DataBaseConnect DBC = new DataBaseConnect();//DBクラスのインスタンス
 	Text tx = new Text();//テキストクラスのインスタンス
-
 
 	/*playerinfoの配列内容------------------/usecardの配列の内容----/
 	/										/						/
@@ -33,9 +34,16 @@ public class GameProject
 	//メインメソッド
 	void main(int[] playerinfo, int[] usecard)
 	{
-		for(int i =0;i<text.length;i++)
+		textreset();
+
+		for (int i = 0; i < textmain.length; i++)
 		{
-			text[i] = tx.text(playerinfo[1],playerinfo[2],1,null);//テキストファイルを検索[ルームID][ユーザ番号][行数][書１、読null]
+			textW = tx.text(playerinfo[1], playerinfo[2], i, 1);//テキストファイルを検索[ルームID][ユーザ番号][行数][書0、読1]
+			for(int j = 0;j<textW.length;j++)
+			{
+				w = textW[j];
+				textmain[i][j] = w;
+			}
 		}
 	}
 
@@ -79,6 +87,19 @@ public class GameProject
 			}
 		}
 
+	}
+
+	//textの初期化（使わないデータの場所には-1）
+	void textreset()
+	{
+		for (int i = 0; i < textmain.length; i++)
+		{
+			for(int j = 0;j<textmain[0].length;j++)
+			{
+				textmain[i][j] = -1;
+			}
+
+		}
 	}
 
 }
