@@ -36,7 +36,7 @@ public class DataBaseConnect
 				ResultSet rs = stmt.executeQuery("");
 				room[0] = rs.getInt("ユーザid");
 				room[1] = rs.getInt("ルームid");
-				room[2] = rs.getInt("攻守");
+				room[3] = rs.getInt("");//ルームでのユーザ番号(プレイヤー１など)
 			}
 			catch(SQLException e)
 			{

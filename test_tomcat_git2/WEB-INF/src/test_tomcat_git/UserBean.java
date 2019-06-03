@@ -7,24 +7,27 @@ public class UserBean
 	private HttpSession session;//SessionID
 	private String userID;//ユーザーID
 	private String roomID;	//ルームID
-	private String at_df;//攻守
+	private String userNumber;//プレイヤー番号 1 or 2 ?
 
 	//setter & getter
-	public HttpSession getsession() {
+	public HttpSession getSession() {
 		return session;
 	}
-	public void setsession(HttpSession session) {
+	public void setSession(HttpSession session) {
 		// TODO 自動生成されたメソッド・スタブ
 		this.session = session;
 	}
 
-	public String getuserID() {
+
+	public String getUserID() {
 		return userID;
 	}
-	public void setuserID(String userID) {
+	public void setUserID(String userID) {
 		// TODO 自動生成されたメソッド・スタブ
 		this.userID = userID;
 	}
+
+
 	public String getRoomID() {
 		return roomID;
 	}
@@ -32,11 +35,13 @@ public class UserBean
 		// TODO 自動生成されたメソッド・スタブ
 		this.roomID = roomID;
 	}
-	public String getAt_Df() {
-		return at_df;
-	}
-	public void setAt_Df(String at_df) {
-		this.at_df = at_df;
-	}
 
+
+	public String getUserNumber() {
+		return roomID;
+	}
+	public void setUserNumber(String roomID) {
+		// TODO 自動生成されたメソッド・スタブ
+		this.roomID = roomID;
+	}
 }
