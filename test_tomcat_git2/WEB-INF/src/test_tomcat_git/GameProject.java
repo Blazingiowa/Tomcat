@@ -31,15 +31,13 @@ public class GameProject
 	/---------------------------------------/----------------------*/
 
 	//メインメソッド
-	void main(String[] playerinfo, int[] usecard)
+	void main(int[] playerinfo, int[] usecard)
 	{
 		text = tx.text(playerinfo[1],playerinfo[2],1,1);//テキストファイルを検索[ルームID][ユーザ番号][行数][書１、読null]
 		for(int i =0;i<text.length;i++)
 		{
 
 		}
-
-
 	}
 
 	/*攻撃カードの手札の配列内容(5×5)--------------------------/

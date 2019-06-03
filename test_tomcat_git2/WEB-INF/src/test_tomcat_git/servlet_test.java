@@ -23,6 +23,7 @@ public class servlet_test extends HttpServlet
 	UserBean ub = new UserBean();
 	Gamestart game_start = new Gamestart();
 	Gamemain game_main = new Gamemain();
+	GameProject game_project = new GameProject();
 
 	HttpSession session;
 
@@ -103,9 +104,13 @@ public class servlet_test extends HttpServlet
 	{
 		user_session[0] =(int) session.getAttribute("userID");
 		user_session[1] =(int) session.getAttribute("roomID");
+		user_session[2] =(int) session.getAttribute("user_number");
 
 
 		use_hand = conversion((String[])request.getParameterValues("Use_hand"));
+
+
+		game_project.main(user_session, use_hand);
 	}
 
 
