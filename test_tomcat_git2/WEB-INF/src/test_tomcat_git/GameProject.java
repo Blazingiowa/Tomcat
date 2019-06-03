@@ -35,6 +35,7 @@ public class GameProject
 	//メインメソッド
 	void main(int[] playerinfo, int[] usecard)
 	{
+		//textmainの内容を初期化
 		textreset();
 
 		for (int i = 0; i < textmain.length; i++)
@@ -46,6 +47,12 @@ public class GameProject
 				w = textW[j];
 				textmain[i][j] = w;
 			}
+		}
+
+		//プレイヤーの処理がどうなのか？（０でまだ、１で処理済み）
+		if(textmain[0][0] == 0)
+		{
+			textmain[0][0]=1;//０を１にして、処理済みに変更する
 		}
 	}
 
