@@ -18,6 +18,8 @@ public class GameProject
 	int[] atcardinfo = new int[5];//DBから攻撃カードのデータを受け取るときの退避用配列
 	int[] defcardinfo = new int[2];//DBから防御カードのデータを受け取るときの退避用配列
 
+	int[]text;//テキストファイルの内容を入れるための配列
+
 	DataBaseConnect DBC = new DataBaseConnect();//DBクラスのインスタンス
 	Text tx = new Text();//テキストクラスのインスタンス
 
@@ -29,14 +31,16 @@ public class GameProject
 	/---------------------------------------/----------------------*/
 
 	//メインメソッド
-	void main(String[] playerinfo, int[] usecard)
+	void main(int[] playerinfo, int[] usecard)
 	{
-		//tx.filereader(playerinfo[1],playerinfo[2],1);//テキストファイルを検索
+		text = tx.text(playerinfo[1],playerinfo[2],1,1);//テキストファイルを検索[ルームID][ユーザ番号][行数][書１、読null]
+		for(int i =0;i<text.length;i++)
+		{
 
-
+		}
 	}
 
-	/*攻撃カードの手札の配列内容(5×5)------------------------------/
+	/*攻撃カードの手札の配列内容(5×5)--------------------------/
 	/															/
 	/	[カードID][ダメージ値][コスト][防カード１][防カード２]	/
 	/															/
