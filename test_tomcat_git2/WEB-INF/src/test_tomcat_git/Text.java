@@ -48,22 +48,22 @@ public class Text
 
 		finally
 		{
-			brclose();
+			close();
 		}
 
 		if(WriteorRead == 0)
 		{
-			filewriter(line,linenumber,rewrite);
+			filewriter(line,linenumber,rewrite);//行配列、行番号、書き込む配列
 			return null;
 		}
 		else
 		{
-			filereader(line,linenumber);
+			filereader(line,linenumber);//行配列、行番号
 			return playerinfo;
 		}
 	}
 
-	void filewriter(String[] lineinfo,int linenumber,int[] write)
+	private void filewriter(String[] lineinfo,int linenumber,int[] write) //ファイル書き込み
 	{
 		String text = "";
 		String linestr = "";
@@ -101,9 +101,14 @@ public class Text
 		{
 
 		}
+
+		finally
+		{
+			close();
+		}
 	}
 
-	void filereader(String[] lineinfo,int linenumber)
+	private void filereader(String[] lineinfo,int linenumber) //ファイル読み込み
 	{
 		//カンマ区切り解除
 		String[] temporary = lineinfo[linenumber].split(",");
@@ -115,7 +120,7 @@ public class Text
 		}
 	}
 
-	void brclose()
+	void close()
 	{
 		if(br!=null)
 		{
@@ -126,7 +131,19 @@ public class Text
 
 			catch (IOException e)
 			{
-				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
+
+		if(bw != null)
+		{
+			try
+			{
+				bw.close();
+			}
+
+			catch (IOException e)
+			{
 				e.printStackTrace();
 			}
 		}
