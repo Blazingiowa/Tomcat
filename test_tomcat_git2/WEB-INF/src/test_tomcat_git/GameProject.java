@@ -40,7 +40,7 @@ public class GameProject
 		for (int i = 0; i < textmain.length; i++)
 		{
 			//テキストファイルを検索[ルームID][ユーザ番号][行数][書0、読1][書き込みたい配列、読みはnull]
-			textW = tx.text(playerinfo[1], playerinfo[2], i, 1,null);
+			textW = tx.editer(playerinfo[1], playerinfo[2], i, 1,null);
 			for(int j = 0;j<textW.length;j++)
 			{
 				w = textW[j];

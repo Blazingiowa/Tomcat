@@ -20,9 +20,9 @@ public class Text
 
 	File file;
 
-	int[] text(int room,int number,int line,int WriteorRead,int[] rewrite)//試験的に作るため呼び出し禁止 room 部屋番号　number プレイヤー番号 書き換える配列
+	int[] editer(int room,int number,int linenumber,int WriteorRead,int[] rewrite)//試験的に作るため呼び出し禁止 room 部屋番号　number プレイヤー番号 書き換える配列
 	{
-		String[] linenumber = new String[10];//配列数は仮設定、各行の情報が入力
+		String[] line = new String[10];//配列数は仮設定、各行の情報が入力
 		file = new File("");//roomidとplayernumberを使用してファイルを特定
 
 		//以下テキストファイル読み込み
@@ -33,7 +33,7 @@ public class Text
 
 			for(int i = 0;str != null;i++)
 			{
-				linenumber[i] = str;
+				line[i] = str;
 			}
 		}
 
@@ -49,12 +49,12 @@ public class Text
 
 		if(WriteorRead == 0)
 		{
-			filewriter(linenumber,line,rewrite);
+			filewriter(line,linenumber,rewrite);
 			return null;
 		}
 		else
 		{
-			filereader(linenumber,line);
+			filereader(line,linenumber);
 			return playerinfo;
 		}
 	}
@@ -72,11 +72,12 @@ public class Text
 		}
 	}
 
-	void filereader(String[] lineinfo,int line)
+	void filereader(String[] lineinfo,int linenumber)
 	{
-		//以下int配列へキャスト
-		String[] temporary = lineinfo[line].split(",");
+		//カンマ区切り解除
+		String[] temporary = lineinfo[linenumber].split(",");
 
+		//以下int配列へキャスト
 		for(int i = 0;i<temporary.length;i++)
 		{
 			playerinfo[i] = Integer.parseInt(temporary[i]);
