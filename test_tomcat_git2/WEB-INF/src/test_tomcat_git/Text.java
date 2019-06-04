@@ -1,10 +1,12 @@
 package test_tomcat_git;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 public class Text
@@ -13,6 +15,8 @@ public class Text
 
 	BufferedReader br;
 	FileWriter filewriter;
+	BufferedWriter bw;
+	PrintWriter pw;
 
 	int[] playerinfo = new int[10];//配列数は仮設定
 
@@ -59,11 +63,38 @@ public class Text
 		}
 	}
 
-	void filewriter(String[] lineinfo,int line,int[] write)
+	void filewriter(String[] lineinfo,int linenumber,int[] write)
 	{
+		String text = "";
+		String linestr = "";
+		for(int i = 0;i<write.length;i++)
+		{
+			linestr = linestr+write[i];
+			if(i<write.length-1)
+			{
+				linestr = linestr+",";
+			}
+		}
+
+		lineinfo[linenumber] = linestr;
+
+		for(int i = 0;i<lineinfo.length;i++)
+		{
+			text = text+lineinfo[i];
+
+			if(i<lineinfo.length-1)
+			{
+				text = text+"\r\n";
+			}
+		}
+
 		try
 		{
+			filewriter = new FileWriter(file);
 
+			bw = new BufferedWriter(filewriter);
+			pw = new PrintWriter(bw);
+			pw.println(text);
 		}
 
 		catch(Exception e)
