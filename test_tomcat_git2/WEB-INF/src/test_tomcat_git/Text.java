@@ -11,14 +11,15 @@ import java.io.PrintWriter;
 
 public class Text
 {
-	DataBaseConnect DBC = new DataBaseConnect();
+	//DataBaseConnect DBC = new DataBaseConnect();
 
 	BufferedReader br;
 	FileWriter filewriter;
 	BufferedWriter bw;
 	PrintWriter pw;
 
-	int[] playerinfo,set = new int[3];//配列数は仮設定
+	int[] playerinfo = new int[3];//配列数は仮設定
+	int[] set = new int[3];
 
 	//int roomid,playernumber;//ルーム番号をintにキャスト
 
@@ -38,6 +39,8 @@ public class Text
 			for(int i = 0;str != null;i++)
 			{
 				line[i] = str;
+
+				str = br.readLine();
 			}
 		}
 

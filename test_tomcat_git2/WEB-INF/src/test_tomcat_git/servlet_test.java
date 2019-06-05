@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/servlet_test")
+@WebServlet(urlPatterns = { "/servlet_test"})
 public class servlet_test extends HttpServlet
 {
 	Gson gson = new Gson();
@@ -19,6 +19,7 @@ public class servlet_test extends HttpServlet
 	UserBean ub = new UserBean();
 	Gamestart game_start = new Gamestart();
 	Gamemain game_main = new Gamemain();
+
 	GameProject game_project = new GameProject();
 
 	String name_val;
