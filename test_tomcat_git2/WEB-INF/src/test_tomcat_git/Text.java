@@ -60,7 +60,7 @@ public class Text
 				{
 					set[i] = -1;
 				}
-				line = startup(line,set);
+				line = startup(line,set);//一番最初はlineの中身が空だから-1を入力しテキストファイルの更新で最初の行を変更
 				rewrite = new int[3];
 				rewrite[0] = 0;
 				rewrite[1] = -1;
