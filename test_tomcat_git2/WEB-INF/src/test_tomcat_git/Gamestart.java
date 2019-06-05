@@ -17,7 +17,7 @@ public class Gamestart
 			player[i] = Integer.parseInt(userinfo[i]);
 		}
 
-		tx.editer(player[1], player[2],99,0,null);
+		tx.editer(player[1], player[2],0,0,null);
 
 		//ローカル上のフォルダを検索
 
