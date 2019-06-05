@@ -26,7 +26,7 @@ public class UserBean
 
 
 	public String getUserNumber() {
-		return roomID;
+		return userNumber;
 	}
 	public void setUserNumber(String userNumber) {
 		// TODO 自動生成されたメソッド・スタブ
