@@ -53,9 +53,21 @@ public class Text
 
 		if(WriteorRead == 0)
 		{
-			filewriter(line,linenumber,rewrite);//行配列、行番号、書き込む配列
+			if(rewrite == null)
+			{
+				for(;;)
+				{
+
+				}
+			}
+			else
+			{
+				filewriter(line,linenumber,rewrite);//行配列、行番号、書き込む配列
+			}
+
 			return null;
 		}
+
 		else
 		{
 			filereader(line,linenumber);//行配列、行番号
@@ -67,6 +79,7 @@ public class Text
 	{
 		String text = "";
 		String linestr = "";
+
 		for(int i = 0;i<write.length;i++)
 		{
 			linestr = linestr+write[i];
