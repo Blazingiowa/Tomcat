@@ -39,6 +39,8 @@ public class Text
 			for(int i = 0;str != null;i++)
 			{
 				line[i] = str;
+
+				str = br.readLine();
 			}
 		}
 
