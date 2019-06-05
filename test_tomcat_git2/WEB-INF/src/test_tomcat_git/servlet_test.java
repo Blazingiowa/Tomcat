@@ -8,16 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
 @WebServlet("/servlet_test")
 public class servlet_test extends HttpServlet
 {
-	HttpServletRequest req;
-	HttpServletResponse res;
-
 	Gson gson = new Gson();
 
 	UserBean ub = new UserBean();
@@ -25,11 +21,9 @@ public class servlet_test extends HttpServlet
 	Gamemain game_main = new Gamemain();
 	GameProject game_project = new GameProject();
 
-	HttpSession session;
-
+	String name_val;
 	String[] user_info;
 	int[] user_session;
-	String name_val;
 	int[] use_hand;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,9 +38,6 @@ public class servlet_test extends HttpServlet
 		request.setCharacterEncoding("UTF-8");
 
 
-		session = request.getSession(false);
-
-
 		user_info = new String[3];//順番 0 ユーザーID, 1 ルームID, 2 プレイヤー番号
 		user_session = new int[3];
 
@@ -54,10 +45,8 @@ public class servlet_test extends HttpServlet
 		//ゲーム途中で落とさなければ基本この中
 		if(request.getParameter("end_flag") == null)
 		{
-			if (session.getAttribute("user_name") == null)
+			if (request.getParameter("roomID") == null)//ルームID値持っていないとき始めてきたと認識
 			{
-				session = request.getSession(true);
-
 				new_connect(request);
 				//JSONを生成
 				response.setContentType("application/json");
@@ -68,9 +57,9 @@ public class servlet_test extends HttpServlet
 			}
 			else
 			{
+
 				connect(request);
-			    //game_main.きっと何かメソッド作ってくれる(user_session, use_hand);
-				//
+
 			}
 
 		}
@@ -87,13 +76,6 @@ public class servlet_test extends HttpServlet
 
 		user_info = game_start.createdirectry(name_val);
 
-		session.setAttribute("user_name", name_val);
-		session.setAttribute("userID", user_info[0]);
-		session.setAttribute("roomID", user_info[1]);
-		session.setAttribute("user_number", user_info[2]);
-
-
-		ub.setSession(session);
 		ub.setUserID(user_info[0]);
 		ub.setRoomID(user_info[1]);
 		ub.setUserNumber(user_info[2]);
@@ -102,10 +84,10 @@ public class servlet_test extends HttpServlet
 
 	void connect(HttpServletRequest request)
 	{
-		user_session[0] =(int) session.getAttribute("userID");
-		user_session[1] =(int) session.getAttribute("roomID");
-		user_session[2] =(int) session.getAttribute("user_number");
 
+		user_session[0] =Integer.parseInt(request.getParameter("userID"));
+		user_session[1] =Integer.parseInt(request.getParameter("roomID"));
+		user_session[2] =Integer.parseInt(request.getParameter("user_number"));
 
 		use_hand = conversion((String[])request.getParameterValues("Use_hand"));
 

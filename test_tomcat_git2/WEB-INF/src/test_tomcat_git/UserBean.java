@@ -1,24 +1,12 @@
 package test_tomcat_git;
 
-import javax.servlet.http.HttpSession;
-
 public class UserBean
 {
-	private HttpSession session;//SessionID
 	private String userID;//ユーザーID
 	private String roomID;	//ルームID
 	private String userNumber;//プレイヤー番号 1 or 2 ?
 
 	//setter & getter
-	public HttpSession getSession() {
-		return session;
-	}
-	public void setSession(HttpSession session) {
-		// TODO 自動生成されたメソッド・スタブ
-		this.session = session;
-	}
-
-
 	public String getUserID() {
 		return userID;
 	}
@@ -40,8 +28,8 @@ public class UserBean
 	public String getUserNumber() {
 		return roomID;
 	}
-	public void setUserNumber(String roomID) {
+	public void setUserNumber(String userNumber) {
 		// TODO 自動生成されたメソッド・スタブ
-		this.roomID = roomID;
+		this.userNumber = userNumber;
 	}
 }
