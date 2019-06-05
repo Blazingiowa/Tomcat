@@ -25,7 +25,6 @@ public class GameProject
 	DataBaseConnect DBC = new DataBaseConnect();//DBクラスのインスタンス
 	Text tx = new Text();//テキストクラスのインスタンス
 
-
 	/*playerinfoの配列内容------------------/usecardの配列の内容----/
 	/										/						/
 	/	[ユーザID][ルームID][ユーザ番号]	/	[カードID][][]...	/
@@ -38,14 +37,46 @@ public class GameProject
 		//textmainの内容を初期化
 		textreset();
 
-		for (int i = 0; i < textmain.length; i++)
+		//テキストファイルを検索[ルームID][ユーザ番号][行数][書0、読1][書き込みたい配列、読みはnull]
+		textW = tx.editer(playerinfo[1], playerinfo[2], 0, 1, null);
+
+		//プレイヤーの処理が終わっているのかどうか（０はまだ、１で処理済み）
+		if (textW[0] == 0)
 		{
-			//テキストファイルを検索[ルームID][ユーザ番号][行数][書0、読1][書き込みたい配列、読みはnull]
-			textW = tx.editer(playerinfo[1], playerinfo[2], i, 1,null);
-			for(int j = 0;j<textW.length;j++)
+			for (int i = 0; i < textmain.length; i++)
 			{
-				w = textW[j];
-				textmain[i][j] = w;
+				textW = tx.editer(playerinfo[1], playerinfo[2], i, 1, null);
+
+				//テキストには初期で入ってるデータを配列に入れる
+				for (int j = 0; j < textW.length; j++)
+				{
+					w = textW[j];
+					textmain[i][j] = w;
+				}
+
+			}
+
+			textmain[0][0] = 1;//とりあえず、処理済みにデータを変更
+			//for文を使って２次元配列を１次元配列に退避し、テキストファイルに書き込む
+			for (int i = 0; i < textmain.length; i++)
+			{
+				if (i == 1)//１行目の時が自分が使ったカードの情報
+				{
+					for (int j = 0; j < textmain[1].length; j++)
+					{
+						w = usecard[j];
+						textW[j] = w;
+					}
+				}
+				else//それ以外の時は退避用変数に入れて、そこから１次元配列にデータを入れてテキストに書き込む
+				{
+					for (int j = 0; j < textmain[1].length; j++)
+					{
+						w = textmain[i][j];
+						textW[j] = w;
+					}
+				}
+				tx.editer(playerinfo[1], playerinfo[2], i, 0, textW);
 			}
 		}
 
@@ -103,7 +134,7 @@ public class GameProject
 	{
 		for (int i = 0; i < textmain.length; i++)
 		{
-			for(int j = 0;j<textmain[0].length;j++)
+			for (int j = 0; j < textmain[0].length; j++)
 			{
 				textmain[i][j] = -1;
 			}
