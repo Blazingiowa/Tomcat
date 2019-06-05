@@ -2,7 +2,7 @@ package test_tomcat_git;
 
 import java.util.Random;
 
-public class Gamemain
+public class Gamemain//システム変更につき現在停止中
 {
 	Text tx = new Text();
 
