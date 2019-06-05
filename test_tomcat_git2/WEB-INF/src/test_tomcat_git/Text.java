@@ -60,12 +60,13 @@ public class Text
 				{
 					set[i] = -1;
 				}
-				startup(line,set);
+				line = startup(line,set);
 				rewrite = new int[3];
 				rewrite[0] = 0;
 				rewrite[1] = -1;
 				rewrite[2] = -1;
 			}
+
 			filewriter(line,linenumber,rewrite);//テキストファイルの更新　行配列、行番号、書き込む配列
 
 			return null;
@@ -78,7 +79,7 @@ public class Text
 		}
 	}
 
-	private void startup(String[] lineinfo,int[] write)//ゲームの初期設定
+	private String[] startup(String[] lineinfo,int[] write)//ゲームの初期設定
 	{
 		String text = "",linestr ="";
 		try
@@ -96,6 +97,8 @@ public class Text
 
 			for(int i = 0;i<lineinfo.length;i++)
 			{
+				lineinfo[i] = linestr;
+
 				text = text+linestr;
 
 				if((i+1)<lineinfo.length)
@@ -119,6 +122,8 @@ public class Text
 		{
 			close();
 		}
+
+		return lineinfo;
 	}
 
 	private void filewriter(String[] lineinfo,int linenumber,int[] write) //ファイル書き込み
