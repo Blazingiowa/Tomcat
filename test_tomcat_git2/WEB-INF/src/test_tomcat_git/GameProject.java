@@ -34,6 +34,7 @@ public class GameProject
 	//メインメソッド
 	void main(int[] playerinfo, int[] usecard)
 	{
+		//textmainの内容を初期化
 		textreset();
 
 		//テキストファイルを検索[ルームID][ユーザ番号][行数][書0、読1][書き込みたい配列、読みはnull]
@@ -77,6 +78,12 @@ public class GameProject
 				}
 				tx.editer(playerinfo[1], playerinfo[2], i, 0, textW);
 			}
+		}
+
+		//プレイヤーの処理がどうなのか？（０でまだ、１で処理済み）
+		if(textmain[0][0] == 0)
+		{
+			textmain[0][0]=1;//０を１にして、処理済みに変更する
 		}
 	}
 
