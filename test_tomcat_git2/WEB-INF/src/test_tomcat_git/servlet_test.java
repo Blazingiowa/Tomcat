@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/servlet_test")
+@WebServlet(urlPatterns = { "/servlet_test"})
 public class servlet_test extends HttpServlet
 {
 	Gson gson = new Gson();
