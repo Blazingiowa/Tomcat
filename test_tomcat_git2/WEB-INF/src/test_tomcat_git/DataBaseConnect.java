@@ -60,7 +60,7 @@ public class DataBaseConnect
 
 		}
 
-		else//カード情報を検索
+		else
 		{
 			try
 			{
