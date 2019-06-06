@@ -65,7 +65,6 @@ public class DataBaseConnect
 			{
 				conn = DriverManager.getConnection(url,user,password);
 				DriverManager.setLoginTimeout(timeoutseconds);
-				//SQL
 				Statement stmt = conn.createStatement();
 				//結果の挿入
 				ResultSet rs = stmt.executeQuery("");
