@@ -54,7 +54,6 @@ public class DataBaseConnect
 				catch(SQLException e)
 				{
 					System.out.println(e);
-					//例外処理
 				}
 			}
 
