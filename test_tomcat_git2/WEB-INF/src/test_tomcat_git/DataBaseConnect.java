@@ -54,19 +54,17 @@ public class DataBaseConnect
 				catch(SQLException e)
 				{
 					System.out.println(e);
-					//例外処理
 				}
 			}
 
 		}
 
-		else//カード情報を検索
+		else
 		{
 			try
 			{
 				conn = DriverManager.getConnection(url,user,password);
 				DriverManager.setLoginTimeout(timeoutseconds);
-				//SQL
 				Statement stmt = conn.createStatement();
 				//結果の挿入
 				ResultSet rs = stmt.executeQuery("");
