@@ -24,7 +24,7 @@ public class DataBaseConnect
 			reference[i] = 0;
 		}
 
-		if(type == -1)//ルームの空き情報を検索
+		if(type == -1)
 		{
 			try
 			{
